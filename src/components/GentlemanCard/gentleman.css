@@ -1,9 +1,12 @@
+@import url("/node_modules/@fortawesome/fontawesome-free/css/all.min.css");
+
 .button {
   background: none;
   border: none;
   font-size: 12px;
   cursor: pointer;
 }
+
 .icon {
   background-color: var(--background-small-items);
   border-radius: 50%;
@@ -85,4 +88,8 @@
 .gentleman.selected .gentleman__avatar,
 .gentleman:hover .gentleman__avatar {
   transform: scaleX(-100%);
+}
+
+.non-displayed {
+  display: none;
 }

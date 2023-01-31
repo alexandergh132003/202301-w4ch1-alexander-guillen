@@ -1,5 +1,5 @@
 import React from "react";
-import GentlemanCard from "./GentlemanCard/GentlemanCard";
+import GentlemanCard from "./components/GentlemanCard/GentlemanCard";
 import gentlemen from "./gentlemen/gentlemen";
 
 function App() {
