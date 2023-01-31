@@ -1,4 +1,8 @@
+import Button from "../Button/Button";
 import "./gentleman.css";
+import { useState } from "react";
+import React from "react";
+
 export interface Gentleman {
   key: number;
   name: string;
@@ -10,8 +14,14 @@ export interface Gentleman {
 }
 
 const GentlemanCard = (props: Gentleman): JSX.Element => {
+  const [isHidden, setStyle] = useState(false);
+
+  const hideGentleman = () => {
+    setStyle(!isHidden);
+  };
+
   return (
-    <li className="gentleman">
+    <li className={`gentleman ${isHidden ? "non-displayed" : "displayed"}`}>
       <div className="gentleman__avatar-container">
         <img
           className="gentleman__avatar"
@@ -35,12 +45,19 @@ const GentlemanCard = (props: Gentleman): JSX.Element => {
           </li>
           <li className="gentleman__data">
             <span className="gentleman__data-label">Twitter:</span>
-            {props.status}
+            {props.twitter}
           </li>
         </ul>
       </div>
+
       <i className="icon gentleman__icon fas fa-check"></i>
-      <i className="icon gentleman__icon gentleman__icon--delete fas fa-times"></i>
+
+      <Button
+        onClick={hideGentleman}
+        buttonInnerElement={
+          <i className="icon gentleman__icon gentleman__icon--delete fas fa-times"></i>
+        }
+      />
     </li>
   );
 };
